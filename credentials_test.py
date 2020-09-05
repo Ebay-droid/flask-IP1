@@ -1,5 +1,4 @@
 import unittest
-import pyperclip
 from credentials import Credentials
 
 class TestCredentials(unittest.TestCase):
@@ -39,7 +38,7 @@ class TestCredentials(unittest.TestCase):
     self.new_credentials.delete_credentials()
     self.assertEqual(len(Credentials.credentials_list),1)
     
-  def test display_credentials (self):
+  def test_display_credentials (self):
     '''
     to display the list of all credentials a user may have
     '''
