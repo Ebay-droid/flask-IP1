@@ -10,5 +10,11 @@ class Credentials:
     self.account = account
     self.user_id = user_id
     self.passcode = passcode
+    
+  def save_credentials(self):
+    Credentials.credentials_list.append(self)  
+    
+  def delete_credentials(self):
+    Credentials.credentials_list.remove(self)  
   
   
