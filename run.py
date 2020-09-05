@@ -43,7 +43,16 @@ def display_credentials():
   Credentials.display_credentials
   
 def main():
-  print ("Hello and welcome to Password Locker. ")
+  print ("Hello and welcome to Password Locker. Please enter your name")
+  user_name = input()
+  
+  print(f"Welcome {user_name},how do you wanna continue")
+  print('\n')
+  
+  while True:
+    print("Enter one of these short codes to go forward : ca - create an account, sa - to save your account, cc - to create your credentials, sc - to save your credentials, del  - to delete your credentials, dc - to display contacts, ex - to exit")
+    
+    short_code = input()
         
   
     
