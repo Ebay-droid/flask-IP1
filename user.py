@@ -15,5 +15,11 @@ class User:
     '''
     User.user_list.append(self)
     
+  @classmethod
+  def user_exists(cls,user_name):  
+    for user in cls.user_list:
+      if user.user_name ==user_name:
+        return True
+    
     
   
