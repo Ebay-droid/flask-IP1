@@ -14,3 +14,7 @@ The app was created in Python
 ##  Author :
 Name : Ebenezer Gakuo
 EMail : gakuoebenezer@gmail.com
+
+## LICENCE
+
+https://raw.githubusercontent.com/Ebay-droid/flask-IP1/master/LICENSE
