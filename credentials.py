@@ -23,5 +23,15 @@ class Credentials:
       retuns the credentials list
       '''
       return cls.credentials_list  
+    
+  @classmethod
+  def find_by_account(cls,account):
+    '''
+    will take an account and return the credentiakls associated with it
+    '''
+    for credentials in cls.credentials_list:
+      if credentials.account == account:
+        return credentials
+      
   
   

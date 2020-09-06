@@ -50,10 +50,50 @@ def main():
   print('\n')
   
   while True:
-    print("Enter one of these short codes to go forward : ca - create an account, sa - to save your account, cc - to create your credentials, sc - to save your credentials, del  - to delete your credentials, dc - to display contacts, ex - to exit")
+    print("Enter one of these short codes to go forward : ca - create an account,  cc - to create your credentials, sc - to save your credentials, del  - to delete your credentials, dc - to display contacts, ex - to exit")
     
-    short_code = input()
+    short_code = input().lower
+    
+    if short_code == 'ca':
+      print ("create username")
+      created_username = input()
+      
+      print ("create password")
+      created_password = input ()
+      
+      print ("confirm password")
+      confirm_password = input()
+      
+      while created_password == confirm_password :
         
+        save_user(create_user(created_username, created_password))
+        
+        print(f"Account for {created_username} successfully created. Proceed to Login")
+        print('/n')
+        print("Username")
+        entered_username = input()
+        print("Password")
+        entered_password = input()
+        
+      while entered_username == created_username :
+        print(f"Karibu {entered_username} to your account. Please select one of these short codes to go on cc - to create your credentials,  del  - to delete your credentials, dc - to display contacts, ex - to exit") 
+        
+        if  short_code == 'cc':
+          print("Enter the account whose password you want to save")
+          created_account =input()
+          
+          print("ENter account User_id")
+          account_user_id = input ()
+          
+          print("enter account password")
+          account_passcode = input()
+          
+          save_credentials(create_credentials(created_account,account_user_id, account_passcode))
+          
+        elif short_code == 'del':
+          print ("Enter account of credential to delete")
+            
+         
   
     
       
