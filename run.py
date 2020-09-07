@@ -75,10 +75,10 @@ def main():
           print ("confirm password")
           confirm_password = input()
           
-          while created_password == confirm_password :
+          if created_password == confirm_password :
             
             save_user(create_user(created_username, created_password))
-            
+            print(f"New_User")
             
             print(f"Account for {created_username} successfully created. Proceed to Login using lg shortcode")
             
@@ -115,48 +115,72 @@ def main():
           #       print (f"credentials deleted")
                 
           #     else:
-          #       print(f"Enter valid account name")  
+          #       print(f"Enter valid account name")  check_existing_user(user_name)
           # else:
           #   print("ENter correct password")        
             
-    # elif short_code == 'lg':
-    #         print("Enter your Username and password below")
-    #         print("Username")
-    #         entered_username = input()
-    #         print("Password")
-    #         entered_password = input()
+    elif short_code == 'lg':
+            print("Enter your Username and password below")
+            print("Username")
+            entered_username = input()
+            print("Password")
+            entered_password = input()
             
-    #         while entered_username == check_existing_user(user_name):
-    #             print(f"Karibu {entered_username} to your account. Please select one of these short codes to go on cc - to create your credentials,  del  - to delete your credentials, dc - to display contacts, ex - to exit") 
+        # while 
+            if entered_username == "silas" :
+              print(f"Karibu {entered_username} to your account. Please select one of these short codes to go on : cc - to create your credentials,  del  - to delete your credentials, dc - to display contacts, ex - to exit") 
+            
+            else:
+              print ("try again later") 
+                  
+            # else:
+            #     break      
                 
-    #             if  short_code == 'cc':
-    #               print("Enter the account whose password you want to save")
-    #               created_account =input()
-                  
-    #               print("ENter account User_id")
-    #               account_user_id = input ()
-                  
-    #               print("enter account password")
-    #               account_passcode = input()
-                  
-    #               save_credentials(create_credentials(created_account,account_user_id, account_passcode))
-                  
-    #             elif short_code == 'del':
-    #               print ("Enter account of credential to delete")
-    #               search_account = input()
-    #               if find_account(search_account):
-    #                 delete_credentials(search_account)
-    #                 print (f"credentials deleted")
-                    
-    #               else:
-    #                 print(f"Enter valid account name")  
-                    
-    #             elif short_code  == 'ex':
-    #               print("See you next time")
-    #               break  
-              
-    # else  :
-    #         print ("Please use valid short_code")   
+    elif  short_code == 'cc':
+      print("Enter the account whose password you want to save")
+      created_account =input()
+      
+      print("Enter account User_id")
+      account_user_id = input ()
+      
+      print("enter account password")
+      account_passcode = input()
+      
+      save_credentials(create_credentials(created_account,account_user_id, account_passcode))
+      if save_credentials:
+        print(f"YOur account is now saved")
+      
+    elif short_code == 'del':
+      print ("Enter account of credential to delete")
+      search_account = input()
+      if find_account(search_account):
+        delete_credentials(search_account)
+        print (f"credentials deleted")
+        
+      else:
+        print(f"Enter valid account name")  
+        
+    elif short_code == 'dc':
+      
+        if display_credentials ():
+          print("Here is a list of your credentials")   
+          print('\n')
+          for credential in display_credentials():
+            print(f"{credential.account},{credential.user_id},{credential.passcode}")
+            print ('\n')
+            
+        else: 
+          print('\n')
+          print("You dont seem to have any contacts") 
+          print('\n')   
+          
+        
+    elif short_code  == 'ex':
+      print("See you next time")
+      break  
+  
+    else  :
+            print ("Please use valid short_code")   
             
             
 if __name__ == '__main__':

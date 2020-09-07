@@ -51,7 +51,7 @@ class TestCredentials(unittest.TestCase):
     self.new_credentials.save_credentials()
     test_credentials =  Credentials("twitter","Jay","poiu12")
     test_credentials.save_credentials
-    found_credential = Credentials.find_by_account()
+    found_credential = Credentials.find_by_account("twitter")
     
     self.assertEqual(found_credential.user_id,test_credentials.user_id)
     
