@@ -91,42 +91,9 @@ def main():
             
             print(f"Account for {created_username} successfully created. Proceed to Login using lg shortcode")
             
-            # print('/n')
-            # print("Username")
-            # entered_username = input()
-            # print("Password")
-            # entered_password = input()
-          
+
           else:
             print ("invalid username or password")
-            
-          #   while entered_username == created_username :
-          #     print(f"Karibu {entered_username} to your account. Please select one of these short codes to go on cc - to create your credentials,  del  - to delete your credentials, dc - to display contacts, ex - to exit")
-          #     short_code == input().lower() 
-                
-          #   if  short_code == 'cc':
-          #     print("Enter the account whose password you want to save")
-          #     created_account =input()
-              
-          #     print("ENter account User_id")
-          #     account_user_id = input ()
-              
-          #     print("enter account password")
-          #     account_passcode = input()
-              
-          #     save_credentials(create_credentials(created_account,account_user_id, account_passcode))
-              
-          #   elif short_code == 'del':
-          #     print ("Enter account of credential to delete")
-          #     search_account = input()
-          #     if find_account(search_account):
-          #       delete_credentials(search_account)
-          #       print (f"credentials deleted")
-                
-          #     else:
-          #       print(f"Enter valid account name")  check_existing_user(user_name)
-          # else:
-          #   print("ENter correct password")        
             
     elif short_code == 'lg':
             print("Enter your Username and password below")
@@ -136,15 +103,12 @@ def main():
             entered_password = input()
             user_verified = check_existing_user(entered_username,entered_password)
             
-        # while 
             if entered_username == user_verified :
               print(f"Karibu {entered_username} to your account. Please select one of these short codes to go on : cc - to create your credentials,  del  - to delete your credentials, dc - to display contacts, ex - to exit") 
             
             else:
               print ("try again later") 
-                  
-            # else:
-            #     break      
+     
                 
     elif  short_code == 'cc':
           print("Enter the account whose password you want to save")
