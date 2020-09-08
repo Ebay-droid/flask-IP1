@@ -56,9 +56,9 @@ def generate_passcode():
   '''
   autogenerates passscode
   '''
-  gen_pass =Credentials.generate_passcode(
-    return gen_pass
-  )  
+  gen_pass =Credentials.gen_passcode()
+  return gen_pass 
+    
   
 def main():
   print ("Hello and welcome to Password Locker. Please enter your name")
@@ -147,24 +147,39 @@ def main():
             #     break      
                 
     elif  short_code == 'cc':
-      print("Enter the account whose password you want to save")
-      created_account =input()
+          print("Enter the account whose password you want to save")
+          created_account =input()
+          
+          print("Enter account User_id")
+          account_user_id = input ()
+          while True:
+          
+                  print("enter account password or choose to have it generated for you 'ep' : to enter passwprd, 'gp' : to have it generated")
+                  account_passcode_choice = input()
+                  if account_passcode_choice == 'ep':
+                      passcode = input('Enter passcode: ')
+                      break
+                    
+                  elif account_passcode_choice == 'gp':
+                      passcode = generate_passcode()
+                      break
+                    
+                    
+                
       
-      print("Enter account User_id")
-      account_user_id = input ()
       
-      print("enter account password")
-      account_passcode = input()
-      
-      save_credentials(create_credentials(created_account,account_user_id, account_passcode))
-      if save_credentials:
-        print(f"YOur account is now saved")
+          save_credentials(create_credentials(created_account,account_user_id, passcode))
+          if save_credentials:
+            print(f"YOur account is now saved. acc:  {created_account} user: {account_user_id} passcode:  {passcode}")
+            
       
     elif short_code == 'del':
       print ("Enter account of credential to delete")
       search_account = input()
       if find_account(search_account):
-        delete_credentials(search_account)
+        found_account = find_account(search_account)
+        # delete_credentials(search_account)
+        found_account.delete_credentials()
         print (f"credentials deleted")
         
       else:
@@ -176,7 +191,7 @@ def main():
           print("Here goes a list of your credentials")   
           print('\n')
           for credential in display_credentials():
-            print(f"{credential.account} {credential.user_id}{ credential.passcode}")
+            print(f"Account_name: {credential.account} User_id: {credential.user_id} Passcode:  { credential.passcode}")
             print ('\n')
             
         else: 

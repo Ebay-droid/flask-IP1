@@ -1,4 +1,5 @@
 import random
+import string
 
   
 class Credentials:
@@ -20,15 +21,15 @@ class Credentials:
   def delete_credentials(self):
     Credentials.credentials_list.remove(self) 
     
-  def gen_passcode (size=5) :
-    # '''
-    # function to generate a password for the credentials
-    # '''
-        passcode = string.ascii_uppercase + string.ascii_lowercase + string.digits + "(|/~!.@,)#{?$[%]^}&*"
-
-        return  ''.json(random.choice(passcode) for i in range(size))
-       
-   
+  # def gen_passcode (size=5) :
+  #     '''
+  #     function to generate a password for the credentials
+  #     '''
+  def gen_passcode(size=5) :  
+      passcode = string.ascii_uppercase + string.ascii_lowercase + string.digits + "(|/~!.@,)#{?$[%]^}&*"
+      gen_pass =''.join(random.choice(passcode) for i in range(size))
+      return gen_pass  
+    
     
   @classmethod
   def display_credentials(cls):
