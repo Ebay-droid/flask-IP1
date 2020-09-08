@@ -40,7 +40,7 @@ def display_credentials():
   '''
   returns all saved credentials
   '''
-  Credentials.display_credentials
+  return Credentials.display_credentials()
   
 def find_account(account):
   '''
@@ -48,8 +48,17 @@ def find_account(account):
   '''
   return Credentials.find_by_account(account)  
 
-def check_existing_user(user_name):
-  return User.user_exists(user_name)
+def check_existing_user(user_name,password):
+    verify = User.user_exists(user_name,password)
+    return verify
+  
+def generate_passcode():
+  '''
+  autogenerates passscode
+  '''
+  gen_pass =Credentials.generate_passcode(
+    return gen_pass
+  )  
   
 def main():
   print ("Hello and welcome to Password Locker. Please enter your name")
@@ -125,9 +134,10 @@ def main():
             entered_username = input()
             print("Password")
             entered_password = input()
+            user_verified = check_existing_user(entered_username,entered_password)
             
         # while 
-            if entered_username == "silas" :
+            if entered_username == user_verified :
               print(f"Karibu {entered_username} to your account. Please select one of these short codes to go on : cc - to create your credentials,  del  - to delete your credentials, dc - to display contacts, ex - to exit") 
             
             else:
@@ -161,17 +171,17 @@ def main():
         print(f"Enter valid account name")  
         
     elif short_code == 'dc':
-      
+        
         if display_credentials ():
-          print("Here is a list of your credentials")   
+          print("Here goes a list of your credentials")   
           print('\n')
           for credential in display_credentials():
-            print(f"{credential.account},{credential.user_id},{credential.passcode}")
+            print(f"{credential.account} {credential.user_id}{ credential.passcode}")
             print ('\n')
             
         else: 
           print('\n')
-          print("You dont seem to have any contacts") 
+          print("You have no credentials to display") 
           print('\n')   
           
         

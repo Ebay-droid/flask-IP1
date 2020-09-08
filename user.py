@@ -16,11 +16,12 @@ class User:
     User.user_list.append(self)
     
   @classmethod
-  def user_exists(cls,user_name):  
-    # default_user = ""
+  def user_exists(cls,user_name,password):  
+    default_user = ""
     for user in cls.user_list:
-      if user.user_name == user_name:
-        return True
+      if user.user_name == user_name and user.password == password :
+        default_user =user.user_name
+        return default_user
     
     
   
